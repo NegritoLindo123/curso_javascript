@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	
+	<h1>JavaScript Course</h1>
+	
+	<h3>Calculate your I.M.C</h3>
+	
+	<form action="">
+		<label>Weight: </label>
+		<input type="text" id="txtpeso">
+		<label>Height: </label>
+		<input type="text" id="txtaltura">
+		<button id="btnCalcular">Calculate</button>
+	</form>
+	
+	<script type="text/javascript">
+		//Función para ejecutar el codigo luego que todo el HTML se ejecute
+		window.onload = iniciar;
+	
+		function iniciar(){
+			
+			var btnCalcular = document.getElementById("btnCalcular");
+			//Añadir evento
+			btnCalcular.addEventListener("click", clickBtnCalcular);
+			
+		}
+		
+		function clickBtnCalcular(){
+			
+			var txtpeso = document.getElementById("txtpeso");
+			//Sacar el valor de los inputs
+			var peso = txtpeso.value;
+			
+			var txtaltura = document.getElementById("txtaltura");
+			//Sacar el valor de los inputs
+			var altura = txtaltura.value;
+			
+			var imc = peso/(altura*altura);
+			
+			alert("Your IMC is: "+ Math.round(imc));
+			
+		}
+	
+	</script>
+</body>
+</html>

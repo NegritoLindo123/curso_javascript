@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	
+	<h1>JavaScript Course</h1>
+	<h3>Matrices</h3>
+	
+	<label>Tarea: </label>
+	<input type="text" id="txtTarea" >
+	<button id="btnAgregar">Agregar</button>
+	<div id="listado">
+		
+	</div>
+	
+	<script type="text/javascript">
+	
+		window.onload = iniciar;
+		
+		var tareas = [];
+		
+		function iniciar(){
+			
+			var btnAgregar = document.getElementById("btnAgregar");
+			btnAgregar.addEventListener("click", clickBtnAgregar);
+			
+		}
+		
+		function clickBtnAgregar(){
+			
+			var txtTarea = document.getElementById("txtTarea");
+			var tarea = txtTarea.value;
+			
+			tareas.push(tarea);
+			
+			mostrarTareas();
+			
+		}
+		
+		function mostrarTareas(){
+			var listado = document.getElementById("listado");
+			var html = "";
+			
+			for (var tarea of tareas) {
+				
+				html += tarea + "<br>";
+				
+			}
+			
+			listado.innerHTML = html;
+			
+		}
+		
+		//Crear arreglos
+		/*var nombres = [];
+		//Acceder a un indice del array
+		var reg = prompt("Cuantos registros desea ingresar?");
+		
+		for (var i = 0; i < reg; i++) {
+			
+			var nombre = prompt("Nombre: ");
+			nombres[i] = nombre;
+			
+		}
+		
+		//Insertar un nuevo registro en el array sin poner el respectivo indice
+		nombres.push("Cardona");
+		
+		alert(nombres);
+		
+		for(var nombre of nombres){
+			alert(nombre);
+		}*/
+	
+	</script>
+</body>
+</html>
