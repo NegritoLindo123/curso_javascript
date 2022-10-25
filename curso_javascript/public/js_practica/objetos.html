@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	
+	<h1>JavaScript Course</h1>
+	<h3>Objects</h3>
+	
+	<label>Name</label>
+	<input type="text" id="txtName">
+	<hr>
+	<label>Last Name</label>
+	<input type="text" id="txtLastName">
+	<hr>
+	<label>Telephone number</label>
+	<input type="text" id="txtTelephone">
+	<hr>
+	<label>Email</label>
+	<input type="text" id="txtEmail">
+	<hr>
+	<button id="btnAdd">Add</button>
+	<br>
+	<div id="list"></div>
+	
+	<script type="text/javascript">
+	
+		window.onload = start;
+		
+		var people = [];
+		
+		function start(){
+			
+			var btnAdd = document.getElementById("btnAdd");
+			btnAdd.addEventListener("click", clickBtnAdd);
+			
+		}
+		
+		function clickBtnAdd(){
+			
+			var name = document.getElementById("txtName").value;
+
+			var lastName = document.getElementById("txtLastName").value;
+
+			var telephone = document.getElementById("txtTelephone").value;
+
+			var email = document.getElementById("txtEmail").value;
+			
+			var person = {
+				
+				"name": name,
+				"last_name": lastName,
+				"telephone": telephone,
+				"email": email
+				
+			}
+			
+			people.push(person);
+			
+			showPeople();
+			
+		}
+		
+		function showPeople(){
+			
+			var list = document.getElementById("list");
+			var html = "";
+			
+			for(var person of people){
+				html += `Name: ${person.name} - `+`Last Name: ${person.last_name} - `+`Telephone: ${person.telephone} - `+`Email: ${person.email}`;
+			}
+			
+			list.innerHTML = html;
+			
+		}
+	
+		//Create an object in javascript
+		/*var person = {
+			"name": "Lucas",
+			"last_name": "Aristizabal",
+			"telephone": 3245679823,
+			"email": "lucas@gmail.com",
+			"address": "Avenida 34 con septima",
+			"employment": {
+				"name": "Developer",
+				"Location": "Spain",
+			}
+		};*/
+	
+	</script>
+</body>
+</html>

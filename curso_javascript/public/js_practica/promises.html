@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	
+	<h1>JavaScript Course</h1>
+	<hr>
+	<h3>Promises</h3>
+	
+	<b>Post name: </b><span id="txtPostName"></span>
+	<hr>
+	<b>It's complete? </b><span id="txtComplete"></span>
+	
+	<script type="text/javascript">
+		
+		function chargeJson(){
+			
+			//Function to call an API
+			/*fetch("https://jsonplaceholder.typicode.com/todos/1")
+			.then(response => response.json())
+			.then(jsonCharged);*/
+			
+			let promise = new Promise(solve => {
+				
+					setTimeout(() => {
+						
+						let json = {
+								  "userId": 1,
+								  "id": 1,
+								  "title": "delectus aut autem",
+								  "completed": false
+								}
+					
+						solve(json);
+						
+					}, 5000);
+				
+				});
+			
+			promise.then(json => jsonCharged(json));
+			
+		}
+		
+		function jsonCharged(json){
+			
+			let spanPostName = document.getElementById("txtPostName");
+			//Asign a value of JSON´S document
+			spanPostName.innerText = json.title;
+			
+			let spanComplete = document.getElementById("txtComplete");
+			
+			spanComplete.innerText = json.completed ? "It's completed" : "It's not completed";
+			
+			//Asign a value of JSON´S document
+			spanPostName.innerText = json.title;
+			
+			console.log(json);
+			
+		}
+		//Charge JSON
+		chargeJson();
+		
+	</script>
+</body>
+</html>

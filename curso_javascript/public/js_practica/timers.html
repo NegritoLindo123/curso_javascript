@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	
+	<h1>JavaScript Course</h1>
+	<h3>Timers</h3>
+	
+	
+	
+	<script type="text/javascript">
+	
+		//window.onload = start;
+		
+		//Store function into a var
+		var showMessage = function() {
+			alert("Fuck you");
+		}
+		
+		//Arrow function
+		//You can write the function of this way 
+		//if instructions have only one line
+		showMessage = () => alert("Fuck you");
+		
+		
+		//Create a function into the timer function
+		//setTimeout(() => alert("Fuck you"), 2000);
+		
+		//Create a timer with time intervals
+		var timer = setInterval(() => alert("Hello, I´m an alert"), 2000);
+		
+		//Clear timer after 10 seconds 
+		setTimeout(() => clearInterval(timer) , 1000 * 10);
+		
+	</script>
+</body>
+</html>

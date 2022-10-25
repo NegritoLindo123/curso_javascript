@@ -19,5 +19,6 @@ document.write(verificarEdad(19));
 document.write(verificarEdad(8));
 document.write(verificarEdad(17));
 document.write(verificarEdad(87));
+
  
  

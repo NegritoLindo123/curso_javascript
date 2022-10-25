@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	
+	<h1>JavaScript Course</h1>
+	<h3>LocalStorage</h3>
+	
+	<label>Note</label>
+	<input type="text" id="txtNote">
+	
+	<button id="btnAdd">Add</button>
+	<button id="btnClean">Clean localStorage</button>
+	
+	<div id="divNotes"></div>
+	
+	<script type="text/javascript">
+	
+		window.onload = start;
+		
+		function start(){
+			
+			var btnAdd = document.getElementById("btnAdd");
+			btnAdd.addEventListener("click", clickBtnAdd);
+			
+			var btnClean = document.getElementById("btnClean");
+			btnClean.addEventListener("click", clickBtnClean);
+			
+			showNotes();
+			
+		}
+		
+		function clickBtnClean(){
+			
+			localStorage.clear();
+			//Reload page automatically
+			location.reload();
+			alert("LocalStorage Deleted");
+			
+		}
+		
+		function clickBtnAdd(){
+			
+			var txtNote = document.getElementById("txtNote");
+			
+			var notes = [];
+			
+			if(localStorage.notes){
+				notes = JSON.parse(localStorage.notes);
+			}
+			notes.push(txtNote.value);
+			
+			//Crear el LocalStorage
+			localStorage.notes = JSON.stringify(notes);
+			
+			showNotes();
+			
+		}
+		
+		function showNotes(){
+			
+			var divNotes = document.getElementById("divNotes");
+			
+			var notes = [];
+			
+			if(localStorage.notes){
+				notes = JSON.parse(localStorage.notes);
+			}
+			
+			var html = "";
+			
+			for (var note of notes) {
+				
+				html += note + "<br>";
+				
+			}
+			
+			divNotes.innerHTML = html;
+			
+		}
+		
+		function cleanLocalStorage(){
+			
+			
+			
+		}
+	
+	</script>
+</body>
+</html>

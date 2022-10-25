@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	
+	<h1>Creating Clock</h1>
+	<hr>
+	<h3 class="reloj">10:15:20</h3>
+	
+	
+	
+	<script type="text/javascript">
+	
+		//window.onload = start;
+		
+		setInterval(() => {
+			
+			var clock = document.getElementsByClassName("reloj")[0];
+			//Get the current time
+			var currentTime = new Date();
+			//Get que current hours
+			var hours = currentTime.getHours();
+			//Validate if the hours are less than 10 to add a 0
+			if(hours<10){
+				hours = `0${hours}`;
+			}
+			//Get que current minutes
+			var minutes = currentTime.getMinutes();
+			//Validate if the minutes are less than 10 to add a 0
+			if(minutes<10){
+				minutes = `0${minutes}`;
+			}
+			//Get que current seconds
+			var seconds = currentTime.getSeconds();
+			//Validate if the seconds are less than 10 to add a 0
+			if(seconds<10){
+				seconds = `0${seconds}`;
+			}
+			//Show the current time (It´s updated every second)
+			clock.innerHTML = `${hours} : ${minutes} : ${seconds}`;
+			
+		}, 1000);
+		
+	</script>
+</body>
+</html>

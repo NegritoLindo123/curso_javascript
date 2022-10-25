@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+</head>
+<body>
+	
+	<h1>JavaScript Course</h1>
+	<hr>
+	<h3>API</h3>
+	
+	<b>Post name: </b><span id="txtPostName"></span>
+	<hr>
+	<b>It's complete? </b><span id="txtComplete"></span>
+	
+	<script type="text/javascript">
+	
+		async function chargeUrl(url) {
+			
+			let result = await fetch(url);
+			return result.json();
+			
+		}
+		
+		async function jsonCharged(){
+			
+			let json = await chargeUrl("https://jsonplaceholder.typicode.com/todos/1");
+			
+			let spanPostName = document.getElementById("txtPostName");
+			//Asign a value of JSON´S document
+			spanPostName.innerText = json.title;
+			
+			let spanComplete = document.getElementById("txtComplete");
+			
+			spanComplete.innerText = json.completed ? "It's completed" : "It's not completed";
+			
+			//Asign a value of JSON´S document
+			spanPostName.innerText = json.title;
+			
+			console.log(json);
+			
+		}
+		//Charge JSON
+		jsonCharged();
+		
+	</script>
+</body>
+</html>
